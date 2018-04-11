@@ -47,11 +47,13 @@ RUN git clone --recursive https://github.com/openai/retro.git gym-retro && \
 RUN apt-get install -y x11vnc xvfb fluxbox wmctrl && \
         apt-get clean
 
+WORKDIR /workspace
+
 # TensorBoard
 EXPOSE 6006
-# IPython
+# jupyter
 EXPOSE 8888
 # VNC Server
 EXPOSE 5900
 
-CMD jupyter notebook
+CMD jupyter notebook --ip=0.0.0.0 --allow-root
