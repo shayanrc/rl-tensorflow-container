@@ -1,4 +1,4 @@
-FROM nvidia/cuda:9.1-cudnn7-runtime
+FROM nvidia/cuda:9.0-cudnn7-runtime
 
 WORKDIR /
 
@@ -13,9 +13,11 @@ RUN pip3 install --upgrade pip setuptools
 #2. installing jupyter, and a bunch of Science Python Packages
 RUN pip3 install jupyter pandas matplotlib scipy seaborn scikit-learn scikit-Image sympy cython patsy statsmodels cloudpickle dill numba bokeh
 
-#3. Installing Tensorflow and Keras
+#3. Installing Tensorflow, Keras and Torch
 RUN pip3 install tensorflow-gpu
 RUN pip3 install keras
+RUN pip3 install torch torchvision
+
 
 #4. installing OpenAI Gym (plus dependencies)
 RUN pip3 install gym pyopengl
