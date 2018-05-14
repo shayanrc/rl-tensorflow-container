@@ -49,6 +49,9 @@ RUN git clone --recursive https://github.com/openai/retro.git gym-retro && \
 RUN apt-get install -y x11vnc xvfb fluxbox wmctrl && \
         apt-get clean
 
+#6. Installing Helper Libraries
+RUN pip3 install tqdm
+
 WORKDIR /workspace
 
 # TensorBoard
